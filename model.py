@@ -11,8 +11,8 @@ heart_cases = {0: "You don't have heart failure",
                1: "You have heart failure"}
 
 df = pd.read_csv("heart_disease_new.csv")
-x = df[[c for c in df.columns if c != 'DEATH_EVENT']]
-y = df['DEATH_EVENT']
+x = df[[c for c in df.columns if c != 'EVENT']]
+y = df['EVENT']
 
 
 X_train, X_test, y_train, y_test = train_test_split(
@@ -27,8 +27,8 @@ model_final = RandomForestClassifier(max_depth=3, min_samples_leaf=40, min_sampl
 model_final.fit(X_train_smote, y_train_smote)
 
 
-def model_predict(a, b, c, d, e):
-    marks = [a, b, c, d, e]
+def model_predict(a, b, c, d, e,f):
+    marks = [a, b, c, d, e, f]
     features = [float(x) for x in marks]
     test = np.array(features)
     test = test.reshape((1, -1))

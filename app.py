@@ -17,11 +17,11 @@ def classify_type():
         ejection_fraction = request.args.get('ejection_fraction')
         serum_creatinine = request.args.get('serum_creatinine')
         serum_sodium = request.args.get('serum_sodium')
-        time = request.args.get('time')
-
+        high_blood_pressure = request.args.get('high_blood_pressure')
+        anaemia = request.args.get('anaemia')
         # Get the output from the classification model
         result = model.model_predict(
-            age, ejection_fraction, serum_creatinine, serum_sodium, time)
+            age, ejection_fraction, serum_creatinine, serum_sodium, high_blood_pressure,anaemia)
 
         # Render the output in new HTML page
         return render_template('output.html', result=result)
